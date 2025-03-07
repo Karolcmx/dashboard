@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 
 
 def definicao_parametros_graficos():
-
     # configurações gerais 
     sns.set_theme()
 
@@ -16,8 +15,6 @@ def definicao_parametros_graficos():
     plt.rcParams ['ytick.labelsize']=7     #tamanho dos ticks eixo x
     plt.rcParams ['legend.fontsize']=8     #tamanho da legenda
     plt.rcParams ['lines.markersize']=4    #tamanho dos marcadores nas linhas
-    
-   
     
     st.set_page_config(page_title=' Análise vendas por estado', layout='wide')
 
@@ -106,7 +103,6 @@ def visoes_temporais (c_df,s_df):
     plt.xticks (rotation= 60)
     col1.pyplot(fig1)
 
-
     clientes_temporal = c_df[['order_purchase_year_month','customer_unique_id']].groupby('order_purchase_year_month').nunique().reset_index()
     fig2, ax2 = plt.subplots()
     sns.lineplot(data = clientes_temporal, x = 'order_purchase_year_month', y= 'customer_unique_id',color='m',marker='o', ax = ax2)
@@ -126,7 +122,6 @@ def visoes_temporais (c_df,s_df):
     col3.pyplot(fig3)
 
     return None
-
 
 def faturamento_por_categoria(df):
     
@@ -167,7 +162,6 @@ def quantidade_clientes_por_estado(df):
     
     col1.pyplot(fig2)
     #st.pyplot(fig)
-
 
 if __name__ == '__main__':
     definicao_parametros_graficos()
